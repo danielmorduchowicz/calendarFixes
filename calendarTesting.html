@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Calendar JQ Testing</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="jQueryCalendar-consolidated.js"></script>
+
+
+
+<style>
+html,body,*{
+    width:100%;
+    padding:0;
+    margin:0;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+
+#daysOfTheWeekNames{
+display:flex;
+list-style: none;
+top:0;
+background-color:rgba(200,200,200,0.85);
+position:fixed;
+width:95%;
+
+}
+#container{
+    width:95%;
+    margin-left:2.5%;
+    margin-top:2%;
+}
+#daysOfTheWeekNames li{
+    text-align: center;
+    width:14.2857%;
+    border:1px solid gray;
+}
+#calendar{
+    width:100%;
+    height:100%;
+}
+#calendar ul{
+    width:100%;
+    padding:0;
+    margin:0;
+    list-style: none;
+    display:flex;
+    flex-wrap:wrap;
+
+}
+#calendar li{
+  padding:2px;
+  padding-left:10px;
+  margin:2px;
+}
+#calendar div.month{
+    width:100%;
+    height:100%;
+    padding:0;
+    margin:0;
+    list-style: none;
+    display:flex;
+    flex-wrap:wrap;
+
+}
+#calendar h1{
+    text-align: center;
+}
+.day{
+    width:14.2857%;
+    box-sizing: border-box;
+    min-height:100px;
+    padding:5px;
+    border:1px solid rgb(230,230,230);
+}
+.dayClasses ul, .dayClasses li{
+    font-size: 0.9em;
+    padding:0px;
+}
+.selected{
+  border:2px solid red;
+}
+
+ .ui-selecting { background: #FECA40; }
+.ui-selected { border:1px solid black;
+                background-color:pink !important;
+            }
+.ui-selectable-helper {
+  position: absolute;
+  z-index: 100;
+  border: 2px dotted black;
+}
+#calendarActions{
+  position:fixed;
+  top:30px;
+  width:90px;
+  height:30px;
+  right:40px;
+  text-align: center;
+  border-radius:10px;
+  background-color:#4CAF50;
+  color:white;
+  display:flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  padding:2px;
+  cursor:pointer;
+}
+#calendarActionsMenu{
+  position:fixed;
+  z-index:200;
+  width:80%;
+  height:80%;
+  background-color: rgb(240,240,240);
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  display:none;
+  border-radius:20px;
+  align-items: center;
+  justify-content: flex-start;
+  padding:40px;
+}
+#calendarActionsMenu ul{
+  list-style-type: none;
+}
+#calendarActionsMenu li{
+  background-color:green;
+  color:white;
+  border-radius:10px;
+  margin:20px;
+  padding:30px;
+  width:40%;
+  cursor:pointer;
+}
+.closeThisButton{
+  width:40px;
+  position:absolute;
+  right:10px;
+  top:10px;
+  padding:5px 10px;
+  background-color:green;
+  color:white;
+  border-radius: 5px;
+  cursor:pointer;
+}
+.eveningClass{
+  background-color:rgb(70,100,200);
+  color:white;
+}
+.lunchClass{
+  background-color:rgb(200,200,255);
+  color:black;
+}
+</style>
+
+</head>
+<body>
+  <div id="calendarActionsMenu">
+    <div class="closeThisButton">
+      close
+    </div>
+    <ul>
+      <li id="removeAllSelected">remove all selected classes</li>
+      <li id="saveToDB">save to database</li>
+      <li id="removeDatesFromDB">save removed dates</li>
+      <li id="toggleEveningClasses">hide evening classes</li>
+      <li id="toggleLunchClasses">hide lunch classes</li>
+      <li id="addClassTime">duplicate selected as evening or lunch same day</li>
+
+    </ul>
+
+  </div>
+    <div id=container>
+    <ul id="daysOfTheWeekNames">
+        <li>Sun</li>
+        <li>Mon</li>
+        <li>Tue</li>
+        <li>Wed</li>
+        <li>Thu</li>
+        <li>Fri</li>
+        <li>Sat</li>
+    </ul>
+      <div id="calendarActions">
+        actions
+      </div>
+  <div id="calendar">
+
+  </div>
+</body>
+
+</html>
